@@ -51,9 +51,9 @@ jobs:
           HOST: ${{ secrets.EC2_HOST }}
           USER: ${{ secrets.EC2_USER }}
         run: |
-          echo "${PRIVATE_KEY}"
-          echo "${HOST}"
-          echo "${USER}"
+          echo "PRIVATE_KEY=${PRIVATE_KEY}"
+          echo "HOST=${HOST}"
+          echo "USER=${USER}"
           # echo "$PRIVATE_KEY" > knowleage.pem
           # chmod 600 knowleage.pem
 
