@@ -51,10 +51,13 @@ jobs:
           HOST: ${{ secrets.EC2_HOST }}
           USER: ${{ secrets.EC2_USER }}
         run: |
-          echo "$PRIVATE_KEY" > knowleage.pem
-          chmod 600 knowleage.pem
+          echo "${PRIVATE_KEY}"
+          echo "${HOST}"
+          echo "${USER}"
+          # echo "$PRIVATE_KEY" > knowleage.pem
+          # chmod 600 knowleage.pem
 
-          scp -i knowleage.pem target/*.war $USER@$HOST:~
+          # scp -i knowleage.pem target/*.war $USER@$HOST:~
 
           # ssh -i knowleage.pem $USER@$HOST << 'EOF'
           #   sudo systemctl stop tomcat
@@ -62,4 +65,4 @@ jobs:
           #   sudo systemctl start tomcat
           # EOF
 
-          rm -f knowleage.pem
+          # rm -f knowleage.pem
